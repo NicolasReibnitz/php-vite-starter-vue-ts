@@ -1,10 +1,13 @@
 <?php
-class HTML {
-	public function __construct(public string $title, public string $lang = 'en') {
+class HTML
+{
+	public function __construct(public string $title, public string $lang = 'en')
+	{
 		ob_start();
 	}
 
-	public function __destruct() {
+	public function __destruct()
+	{
 		$output = ob_get_clean();
 
 		ob_start();

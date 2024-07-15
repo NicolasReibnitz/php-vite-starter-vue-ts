@@ -1,0 +1,11 @@
+/dist
+/src-capacitor
+/src-cordova
+/.quasar
+/node_modules
+.eslintrc.js
+babel.config.js
+/public/download
+/_forks
+/src/_unused
+/src/types/database.types.ts

@@ -1,0 +1,16 @@
+RewriteEngine On
+RewriteBase /
+
+SetEnv DOCUMENT_ROOT /kunden/homepages/3/d739241148/htdocs/_temp/dist
+
+RewriteCond %{REQUEST_URI}::$1 ^(.*?/)(.*)::\2$
+  RewriteRule ^(.*)$ - [E=BASE:%1]
+
+RewriteCond %{ENV:DOCUMENT_ROOT}%{ENV:BASE}pages/$1.php -f
+  RewriteRule ^(.*)(\.php|)$ pages/$1.php [L,QSA]
+
+RewriteCond %{ENV:DOCUMENT_ROOT}%{ENV:BASE}pages/$1index.php -f
+  RewriteRule ^(.*)(\.php|)$ pages/$1index.php [L,QSA]
+
+RewriteCond %{ENV:DOCUMENT_ROOT}%{ENV:BASE}public/$1 -f
+  RewriteRule ^(.*)$ public/$1 [L,QSA]

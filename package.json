@@ -4,8 +4,8 @@
 	"version": "1.0.0",
 	"type": "module",
 	"scripts": {
+		"build": "vue-tsc -b && vite build",
 		"dev": "vite",
-		"build": "tsc --noEmit && vite build",
 		"php-install": "php ./bin/composer.phar install"
 	},
 	"keywords": [
@@ -34,10 +34,17 @@
 		"email": "nikita.n@nititech.de",
 		"url": "https://nititech.de"
 	},
+	"dependencies": {
+		"vue": "^3.4.29"
+	},
 	"devDependencies": {
+		"@das.laboratory/eslint-config-interactive-next": "^0.6.0",
+		"@das.laboratory/eslint-config-interactive-ts": "^0.0.1",
 		"@prettier/plugin-php": "^0.22.2",
 		"@types/node": "^20.12.7",
+		"@vitejs/plugin-vue": "^5.0.5",
 		"autoprefixer": "^10.4.19",
+		"eslint-config-async": "^2.0.2",
 		"postcss": "^8.4.38",
 		"prettier": "^3.2.5",
 		"sass": "^1.74.1",
@@ -49,6 +56,7 @@
 		"vite-plugin-php": "^1.0.20",
 		"vite-plugin-static-copy": "^1.0.2",
 		"vite-plugin-svgr": "^4.2.0",
-		"vite-tsconfig-paths": "^4.3.2"
+		"vite-tsconfig-paths": "^4.3.2",
+		"vue-tsc": "^2.0.21"
 	}
 }

@@ -1,11 +1,12 @@
-// vite.config.js
-import { defineConfig } from 'vite';
+import vue from '@vitejs/plugin-vue';
 import { fileURLToPath } from 'node:url';
+import { defineConfig } from 'vite';
+import { imagetools } from 'vite-imagetools';
+import { ViteEjsPlugin } from 'vite-plugin-ejs';
 import usePHP from 'vite-plugin-php';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
-import { ViteEjsPlugin } from 'vite-plugin-ejs';
-import { imagetools } from 'vite-imagetools';
 
+// https://vitejs.dev/config/
 export default defineConfig(({ command }) => {
 	const publicBasePath = '/'; // Change if deploying under a nested public path. Needs to end with a /. See https://vitejs.dev/guide/build.html#public-base-path
 
@@ -22,33 +23,35 @@ export default defineConfig(({ command }) => {
 					requestUrl.pathname = '/pages' + requestUrl.pathname;
 
 					return requestUrl;
-				},
+				}
 			}),
 			ViteEjsPlugin({
-				BASE,
+				BASE
 			}),
 			viteStaticCopy({
 				targets: [
 					{ src: 'public', dest: '' },
 					{ src: 'system', dest: '' },
-					{ src: 'vendor', dest: '' },
+					{ src: 'vendor', dest: '' }
 				],
-				silent: command === 'serve',
+				silent: command === 'serve'
 			}),
+			vue()
 		],
 		define: { BASE: JSON.stringify(BASE) },
 		resolve: {
 			alias: {
 				'~/': fileURLToPath(new URL('./src/', import.meta.url)),
-			},
+				'@/': fileURLToPath(new URL('./public/', import.meta.url))
+			}
 		},
 		publicDir: command === 'build' ? 'raw' : 'public',
 		server: {
-			port: 3000,
+			port: 3000
 		},
 		build: {
 			assetsDir: 'public',
-			emptyOutDir: true,
-		},
+			emptyOutDir: true
+		}
 	};
 });

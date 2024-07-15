@@ -1,25 +1,32 @@
 {
 	"compilerOptions": {
+		"allowImportingTsExtensions": true,
+		"allowSyntheticDefaultImports": true,
 		"baseUrl": ".",
-		"types": ["vite/client", "node"],
-		"target": "ESNext",
-		"useDefineForClassFields": true,
-		"module": "ESNext",
-		"lib": ["ESNext", "DOM"],
-		"moduleResolution": "Node",
-		"strict": true,
-		"sourceMap": true,
-		"resolveJsonModule": true,
-		"isolatedModules": true,
+		"composite": true,
 		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		"isolatedModules": true,
+		"jsx": "preserve",
+		"lib": ["ES2020", "DOM", "DOM.Iterable"],
+		"module": "ESNext",
+		"moduleDetection": "force",
+		"moduleResolution": "Node",
 		"noEmit": true,
+		"noFallthroughCasesInSwitch": true,
+		"noImplicitReturns": true,
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
-		"noImplicitReturns": true,
-		"skipLibCheck": true,
 		"paths": {
 			"~/*": ["./src/*"]
-		}
+		},
+		"resolveJsonModule": true,
+		"skipLibCheck": true,
+		"sourceMap": true,
+		"strict": true,
+		"target": "ES2020",
+		"types": ["vite/client", "node"],
+		"useDefineForClassFields": true
 	},
-	"include": ["src"]
+	"include": ["src", "src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "vite.config.ts"]
 }
